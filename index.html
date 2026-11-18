@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>VOID EVOLVE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen active">
+        <div class="screen-content">
+            <h1 class="game-title">VOID <span class="highlight">EVOLVE</span></h1>
+            <p class="tagline">Consume. Grow. Dominate the Void.</p>
+
+            <div class="input-group">
+                <label for="nickname">Commander Name</label>
+                <input type="text" id="nickname" maxlength="16" placeholder="Enter your callsign" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label>Core Color</label>
+                <div class="color-selector" id="colorSelector">
+                    <div class="color-option" data-color="#00ffff" style="--color: #00ffff"></div>
+                    <div class="color-option" data-color="#ff00ff" style="--color: #ff00ff"></div>
+                    <div class="color-option" data-color="#ffff00" style="--color: #ffff00"></div>
+                    <div class="color-option" data-color="#00ff88" style="--color: #00ff88"></div>
+                    <div class="color-option" data-color="#ff4444" style="--color: #ff4444"></div>
+                    <div class="color-option" data-color="#ff8800" style="--color: #ff8800"></div>
+                    <div class="color-option" data-color="#8844ff" style="--color: #8844ff"></div>
+                    <div class="color-option" data-color="#ff0088" style="--color: #ff0088"></div>
+                </div>
+            </div>
+
+            <button id="startBtn" class="btn primary">ENTER THE VOID</button>
+
+            <div class="controls-hint">
+                <div class="hint"><span class="key">Mouse / Touch</span> Move</div>
+                <div class="hint"><span class="key">Space / Click</span> Dash</div>
+                <div class="hint"><span class="key">M</span> Mute Audio</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game UI Overlay -->
+    <div id="gameUI" class="screen">
+        <div id="hud" class="hud">
+            <div class="hud-left">
+                <div class="tier-display" id="tierDisplay">
+                    <span class="tier-icon" id="tierIcon">◆</span>
+                    <span class="tier-name" id="tierName">SPARK</span>
+                    <span class="tier-level" id="tierLevel">TIER 1</span>
+                </div>
+                <div class="mass-display" id="massDisplay">
+                    <span class="mass-label">MASS</span>
+                    <span class="mass-value" id="massValue">100</span>
+                </div>
+            </div>
+            <div class="hud-center">
+                <div class="minimap-container" id="minimapContainer">
+                    <canvas id="minimap" width="150" height="150"></canvas>
+                    <div class="minimap-label">SECTOR MAP</div>
+                </div>
+            </div>
+            <div class="hud-right">
+                <button id="muteBtn" class="btn icon-btn" title="Mute Audio (M)">
+                    <svg id="muteIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                    <svg id="unmuteIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="leaderboard" class="leaderboard">
+            <div class="leaderboard-header">TOP COMMANDERS</div>
+            <ol id="leaderboardList" class="leaderboard-list"></ol>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="screen">
+        <div class="screen-content">
+            <h1 class="game-over-title">VOID <span class="highlight">COLLAPSED</span></h1>
+            <div class="final-stats" id="finalStats">
+                <div class="stat">
+                    <span class="stat-value" id="finalMass">0</span>
+                    <span class="stat-label">FINAL MASS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="finalTier">SPARK</span>
+                    <span class="stat-label">HIGHEST TIER</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="finalKills">0</span>
+                    <span class="stat-label">ABSORPTIONS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="finalTime">0:00</span>
+                    <span class="stat-label">SURVIVAL TIME</span>
+                </div>
+            </div>
+            <div class="rank-display" id="rankDisplay">RANK: #0</div>
+            <button id="restartBtn" class="btn primary">RE-ENTER THE VOID</button>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

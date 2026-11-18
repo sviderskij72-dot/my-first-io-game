@@ -1,0 +1,19 @@
+Create a complete, modular, playable 2D browser game in HTML5 Canvas, CSS, and Vanilla JavaScript (ES6 modules) called "VOID EVOLVE" (an .io-style Sci-Fi predator evolution game).
+
+Structure the project cleanly inside the current directory:
+- index.html (full-screen canvas, clean UI overlay for start screen with nickname input, skin color selector, HUD, leaderboard, and game-over screen with restart button)
+- style.css (modern neon/dark sci-fi styling, responsive for desktop and mobile)
+- js/main.js (game loop, camera follow with smooth zoom out as player grows, input handling for mouse/touch + Spacebar/Click dash)
+- js/player.js (player movement, mass/radius growth, dash mechanic with cooldown and mass cost, evolution tiers)
+- js/bots.js (18 smart AI bots with realistic gamer nicknames, varied colors, logic to chase smaller targets, flee from larger threats, and eat energy orbs)
+- js/world.js (large bounded arena with subtle sci-fi grid, 250 glowing energy orbs, and 5 "Black Hole" hazards that split or shrink large players if touched)
+- js/ui.js (real-time top-10 leaderboard, current evolution tier indicator, minimap in the bottom-right corner)
+
+Core Mechanics & Polish:
+1. Smooth movement toward cursor/touch with inertia; larger mass = slightly slower base speed.
+2. Evolution Tiers: As player/bots gain mass, they evolve through 5 visual stages (1. Spark, 2. Plasma Core, 3. Nova Sphere, 4. Singularity, 5. Cosmic Leviathan) with distinct glowing rings/auras.
+3. Absorption: An entity can eat another entity if its radius is at least 15% larger. Eating gives 80% of the victim's mass.
+4. Juice & Feedback: Particle bursts when eating orbs or bots, floating "+mass" text popups, screen shake on big absorptions, smooth camera zoom-out as the player gets huge.
+5. Audio: Synthesize simple procedural Web Audio API sound effects (pop sound on eating orb, bass boom on eating bot, whoosh on dash) with a mute toggle button — no external audio files needed.
+
+Build all files now and verify there are no syntax errors.
